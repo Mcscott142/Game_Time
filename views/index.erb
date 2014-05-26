@@ -3,16 +3,32 @@
   <head>
     <title>Leaderboard</title>
     <!--<link rel="stylesheet" href="/home.css" />-->
-  </head>
+    </head>
 
-  <body>
-  <h1>Standings</h1>
-  <ol>
-  <% @teams.each do |team| %>
-  <li><%= team %></li>
-  <% end %>
-  </ol>
+    <body>
 
 
-  </body>
+<h1>Standings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>W</th>
+      <th>L</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |k, v| %>
+      <tr>
+        <td><a href="<%= "/leaderboard/#{k}" %>"><%= k %></a></td>
+        <td><%= v[0][:wins] %>
+        <td><%= v[0][:losses] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+
+    </body>
 </html>
