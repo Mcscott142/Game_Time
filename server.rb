@@ -67,3 +67,14 @@ erb :index
 
 end
 
+get '/leaderboard/:team_page' do
+  @games = import_file('scores.csv')
+  @teams = team_win_losses
+
+@teams.each do |k, v|
+  k == params[:team_page]
+end
+#binding.pry
+  erb :show
+end
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Team Page</title>
+    <!--<link rel="stylesheet" href="/home.css" />-->
+  </head>
+
+  <body>
+  <h1><%= "#{params[:team_page]} Home Page" %></h1>
+  <div>
+  <h3>
+  <%= "Record: #{@teams[params[:team_page]][0][:wins]} - #{@teams[params[:team_page]][0][:losses]}" %>
+  </h2>
+  </div>
+
+
+    <div>
+  <ul>
+    <% @games.each do |game| %>
+    <% if game[:home_team] == params[:team_page] %>
+    <li> <%= "#{game[:home_team]}(Home) #{game[:home_score]} - #{game[:away_team]}(Away) #{game[:away_score]}" %>
+    </li>
+    <% end %>
+      <% if game[:away_team] == params[:team_page] %>
+      <li> <%= "#{game[:away_team]}(Away) #{game[:away_score]} - #{game[:home_team]}(Home) #{game[:home_score]}" %>
+      <% end %>
+    <% end %>
+
+  </ul>
+</div
+
+
+    </body>
+
+
+</html>
